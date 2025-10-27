@@ -4,20 +4,20 @@ import {Link } from "react-router-dom";
 import newsData from '../noticias.json';
 function NavigationBar ({setCategoria}) {
 //variable para manejar las categoria
- const categorias = [...new Set(newsData.map(noticias=>noticias.categoria))];
+ const categorias = [...new Set(newsData.map(noticia=>noticia.categoria))];
     return(
 
         <Navbar bg = 'dark' variant='dark'  expand ='lg'>
          <Container>
           <Navbar.Brand as={Link} to="/"> <strong>News App</strong></Navbar.Brand>
            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/"><strong>Home</strong></Nav.Link>
+             <Nav.Link as={Link} to="/" onClick={() => setCategoria("todas")}><strong>Home</strong></Nav.Link>
               <Dropdown>
                 <DropdownToggle variant="secondary" id="dropdown-basic"><strong>Noticias</strong></DropdownToggle>
                 <DropdownMenu>
-                  {categorias.map((categorias,idx)=>
-                  <DropdownItem key="idx" onClick={()=>setCategoria(categorias)}>
-                      {categorias}
+                  {categorias.map((categoria,idx)=>
+                  <DropdownItem key={idx} onClick={()=>setCategoria(categoria)}>
+                      {categoria}
                   </DropdownItem>
                   
                   )}

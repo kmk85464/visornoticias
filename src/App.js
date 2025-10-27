@@ -19,7 +19,7 @@ function App() {
 
       <NavigationBar setCategoria={setCategoria} />
        <Routes>
-        <Route path="/" element={<NewsList categorias={categoria} />} />
+        <Route path="/" element={<NewsList categoria={categoria} />} />
         <Route path="/noticia/:id" element={<NewsDetail />} />
       </Routes>
 
